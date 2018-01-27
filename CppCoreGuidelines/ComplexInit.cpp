@@ -1,3 +1,4 @@
+// http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#con4-use-const-to-define-objects-with-values-that-do-not-change-after-construction
 // http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es28-use-lambdas-for-complex-initialization-especially-of-const-variables
 
 namespace complex_init {
