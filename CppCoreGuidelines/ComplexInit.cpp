@@ -11,7 +11,9 @@ struct obj {
   int do_something_with(int i) const { return i; }
 };
 
-void bad() {
+namespace bad {
+
+void foo() {
   const obj some_obj{};
   const auto N = 100;
   widget x{};
@@ -20,7 +22,11 @@ void bad() {
   }
 }
 
-void good() {
+} // namespace bad
+
+namespace good {
+
+void foo() {
   const obj some_obj{};
   const auto N = 100;
   const widget x = [&] {
@@ -31,5 +37,7 @@ void good() {
     return val;
   }();
 }
+
+} // namespace good
 
 } // namespace complex_init

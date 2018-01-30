@@ -2,7 +2,9 @@
 
 namespace uninitialized {
 
-int bad(int val) {
+namespace bad {
+
+int foo(int val) {
   int i;
   if (val > 0) {
     i = 2;
@@ -10,11 +12,17 @@ int bad(int val) {
   return i;
 }
 
-int good(int val) {
+} // namespace bad
+
+namespace good {
+
+int foo(int val) {
   int i = 0;
   if (val > 0) {
     i = 2;
   }
   return i;
 }
+} // namespace good
+
 } // namespace uninitialized
