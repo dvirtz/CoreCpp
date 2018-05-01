@@ -1,0 +1,95 @@
+{
+  // See https://go.microsoft.com//fwlink//?linkid=834763 for more information about this file.
+  "configurations": [
+    {
+      "name": "vs-warnings",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=f:\\Work\\polly\\ninja-vs-15-2017-win64-warnings.cmake",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": ""
+    },
+    {
+      "name": "vs-analyze",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=f:\\Work\\polly\\ninja-vs-15-2017-win64-warnings.cmake -DCMAKE_CXX_FLAGS=\"/analyze /analyze:plugin EspXEngine.dll /wd26439 /wd26440 /wd26497 /EHsc\"",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "environments": [
+        {
+          "esp.extensions": "cppcorecheck.dll",
+          "esp.annotationbuildlevel": "ignore",
+          "caexcludepath": "${env.INCLUDE}"
+        }
+      ]
+    },
+    {
+      "name": "gcc-7",
+      "generator": "Ninja",
+      "remoteMachineName": "${defaultRemoteMachineName}",
+      "configurationType": "Debug",
+      "remoteCMakeListsRoot": "/home/${env.USERNAME}/Work/CoreCpp/Variants",
+      "cmakeExecutable": "/usr/local/bin/cmake",
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "remoteBuildRoot": "/var/tmp/build/${workspaceHash}/build/${name}",
+      "remoteInstallRoot": "/var/tmp/build/${workspaceHash}/install/${name}",
+      "remoteCopySources": false,
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=/home/${env.USERNAME}/Work/polly/gcc-7-warnings.cmake",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux-x64" ]
+    },
+    {
+      "name": "clang-5",
+      "generator": "Ninja",
+      "remoteMachineName": "${defaultRemoteMachineName}",
+      "configurationType": "Debug",
+      "remoteCMakeListsRoot": "/home/${env.USERNAME}/Work/CoreCpp/Variants",
+      "cmakeExecutable": "/usr/local/bin/cmake",
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "remoteBuildRoot": "/var/tmp/build/${workspaceHash}/build/${name}",
+      "remoteInstallRoot": "/var/tmp/build/${workspaceHash}/install/${name}",
+      "remoteCopySources": false,
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=/home/${env.USERNAME}/Work/polly/libcxx-no-sdk-cxx17.cmake",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux-x64" ],
+      "environments": [
+        {
+          "PATH": "/usr/local/clang-5.0.1/bin:${PATH}"
+        }
+      ]
+    },
+    {
+      "name": "clang-6",
+      "generator": "Ninja",
+      "remoteMachineName": "${defaultRemoteMachineName}",
+      "configurationType": "Debug",
+      "remoteCMakeListsRoot": "/home/${env.USERNAME}/Work/CoreCpp/Variants",
+      "cmakeExecutable": "/usr/local/bin/cmake",
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "remoteBuildRoot": "/var/tmp/build/${workspaceHash}/build/${name}",
+      "remoteInstallRoot": "/var/tmp/build/${workspaceHash}/install/${name}",
+      "remoteCopySources": false,
+      "cmakeCommandArgs": "-DCMAKE_TOOLCHAIN_FILE=/home/${env.USERNAME}/Work/polly/libcxx-no-sdk-cxx17.cmake",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux-x64" ],
+      "environments": [
+        {
+          "PATH": "/usr/local/clang-6.0.0/bin:${PATH}"
+        }
+      ]
+    }
+  ]
+}
